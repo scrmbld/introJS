@@ -1,3 +1,4 @@
+/*
 //takes user input and spits it out in console
 function msg(){
   var message=prompt();
@@ -73,3 +74,24 @@ console.log(middleName);
 middleName="thing";
 console.log(middleName);
 //returns Uncaugt Error: assingment to const variable
+*/
+
+/*
+//taking a number using prompt
+const name=prompt(`What is your favorite number?`);
+console.log(typeof(name));
+//changing string to a number
+const realNum=parseInt(name);
+console.log(realNum);
+console.log(typeof(realNum));
+//changing the nuber back to a string
+const fakeNum=toString(realNum);
+console.log(typeof(fakeNum));
+*/
+
+//date
+const date=new Date();
+console.log(`The date is `+date);
+
+/*const response=confirm(`Are you sure?`);
+console.log(response);*/
