@@ -186,3 +186,37 @@ if(!name){
   alert(`Your name is ${name}.`);
 }
 */
+
+//ternaries are like if statements, cannot be nested
+//also require if/else, cannot use just if
+/*
+let name=prompt(`Enter your name.`);
+name ? alert(`Your name is ${name}`) : alert(`Invalid Name`);
+*/
+//switch statements
+//switch statements are like an elogated if/else statement
+/*
+let superHero=prompt(`What is your favorite superhero?`);
+console.log(superHero);
+
+switch(superHero){
+  case `Kite Man`:
+    console.log("High tier choice. Very respectable.");
+    break;
+    case `Batman`:
+    console.log(`0/10, doesn't wild kites.`);
+    break;
+    case `Superman`:
+    console.log(`Isn't the Elongated man, 0/10.`);
+    break;
+    case`Elongated Man`:
+    console.log(`The real choice. The most bueatiful people, the most successful people, all of them love the Elongated Man.`);
+    break;
+    case `Jigglypuff`:
+    console.log(`Absolutely degenerate. You are a lame person, go outside for once.`);
+    break;
+    default:
+    console.log(`Pretty good, but not the Elongated Man`);
+    break;
+}
+*/
