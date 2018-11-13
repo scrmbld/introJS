@@ -225,6 +225,7 @@ switch(superHero){
 let age=prompt(`Enter your age:`);
 let ageCheck=parseInt(age).toString();
 console.log(ageCheck);
+console.log(age);
 if(age>=18 && age<=80){
   let isCool=confirm(`Do you like the Elongated Man?`);
   if(isCool==true){
@@ -239,8 +240,10 @@ if(age>=18 && age<=80){
   }else{
     alert(`You're jaded.`);
   }
+}else if (age<18 && ageCheck!=`NaN`){
+  alert(`You might not be ready for the glory that is the Elongated Man.`)
+}else if(age==null){
+  //If I get this response, I don't want anything to happen
 }else if(ageCheck==`NaN`){
   alert(`You definitely aren't mature enough to understand the Elongated Man.`);
-}else if (age<18){
-  alert(`You might not be ready for the glory that is the Elongated Man.`)
 }
