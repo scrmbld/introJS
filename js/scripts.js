@@ -220,3 +220,27 @@ switch(superHero){
     break;
 }
 */
+
+//Surveying the populace for their thoughts on god-emperor Randolph Dibney
+let age=prompt(`Enter your age:`);
+let ageCheck=parseInt(age).toString();
+console.log(ageCheck);
+if(age>=18 && age<=80){
+  let isCool=confirm(`Do you like the Elongated Man?`);
+  if(isCool==true){
+    alert(`You are truly great.`);
+  }else{
+    alert(`Reevaluate your life choices. Maybe your I.Q. just isn't high enough.`);
+  }
+}else if(age>80){
+  let isCool=confirm(`Do you still love the Elongated Man?`);
+  if(isCool==true){
+    alert(`Thank you for contributing to human civilization.`);
+  }else{
+    alert(`You're jaded.`);
+  }
+}else if(ageCheck==`NaN`){
+  alert(`You definitely aren't mature enough to understand the Elongated Man.`);
+}else if (age<18){
+  alert(`You might not be ready for the glory that is the Elongated Man.`)
+}
