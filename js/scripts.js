@@ -20,10 +20,10 @@ while(dateConfirmed==false){
   console.log(date);
 
   //Converting date to a string
-  let thing=date.toString();
+  let dateString=date.toString();
 
   //Checking that the date is valid and notifying the user
-  if(thing==`Invalid Date`){
+  if(dateString==`Invalid Date`){
     //if the date is invalid, this is done
     console.log(`date incorrect`);
     dateConfirmed=false;
@@ -31,8 +31,8 @@ while(dateConfirmed==false){
 
   }else{
     //if the date is valid, this is done
-    console.log(thing);
-    dateConfirmed=confirm(`Is the date ${thing} correct?`);
+    console.log(dateString);
+    dateConfirmed=confirm(`Is the date ${dateString} correct?`);
 
   }
   console.log(`date confirmed is ` + dateConfirmed);
