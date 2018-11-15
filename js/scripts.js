@@ -206,7 +206,7 @@ switch(superHero){
     break;
 }
 */
-/*
+
 //Surveying the populace for their thoughts on god-emperor Randolph Dibney
 let age=prompt(`Enter your age:`);
 let ageCheck=parseInt(age).toString();
@@ -232,84 +232,4 @@ if(age>=18 && age<=80){
   //If I get this response, I don't want anything to happen
 }else if(ageCheck==`NaN`){
   alert(`You definitely aren't mature enough to understand the Elongated Man.`);
-}
-*/
-
-//prompting the user
-let userName=prompt(`What is your name?`);
-let favoriteColor=prompt(`What is your favorite color?`);
-//assessing the response
-switch(favoriteColor){
-  case `red`:
-  alert(`Red is an angry color.`);
-  break;
-  case `green`:
-  alert(`Green is an Earthy color.`);
-  break;
-  case `blue`:
-  alert(`Blue is a cool color.`);
-  break;
-  case `orange`:
-  alert(`Orange is a vibrant color.`);
-  break;
-  case `black`:
-  alert(`You're quite edgy today.`);
-  break;
-  case `beige`:
-  alert(`Beige is a practical color.`);
-  break;
-  case `white`:
-  alert(`White is a classic color.`);
-  break;
-  case `yellow`:
-  alert(`Yellow is a bright color.`);
-  break;
-  case `gray`:
-  alert(`Gray is a boring color.`);
-  break;
-  case `grey`:
-  alert(`Grey is an old-timey color.`);
-  break;
-  case `pink`:
-  alert(`Pink is the manliest color.`);
-  break;
-  case `purple`:
-  alert(`Purple is a dark color.`);
-  break;
-  case `Red`:
-  alert(`Red is an angry color.`);
-  break;
-  case `Green`:
-  alert(`Green is an Earthy color.`);
-  break;
-  case `Blue`:
-  alert(`Blue is a cool color.`);
-  break;
-  case `Orange`:
-  alert(`Orange is a vibrant color.`);
-  break;
-  case `Black`:
-  alert(`You're quite edgy today.`);
-  break;
-  case `Beige`:
-  alert(`Beige is a practical color.`);
-  break;
-  case `White`:
-  alert(`White is a classic color.`);
-  break;
-  case `Yellow`:
-  alert(`Yellow is a bright color.`);
-  break;
-  case `Gray`:
-  alert(`Gray is a boring color.`);
-  break;
-  case `Grey`:
-  alert(`Grey is an old-timey color.`);
-  break;
-  case `Pink`:
-  alert(`Pink is the manliest color.`);
-  break;
-  case `Purple`:
-  alert(`Purple is a dark color.`);
-  break;
 }
