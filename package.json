@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "^4.1.3"
   },
   "devDependencies": {},
@@ -20,4 +21,9 @@
   },
   "homepage": "https://github.com/scrmbld/introJS#readme",
   "description": ""
+=======
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  }
+>>>>>>> a013038c574d9361244cc591a7e78d167a8ad038
 }
