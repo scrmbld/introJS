@@ -1,7 +1,17 @@
-//Initializing potato name
-var nameOfPotato=1;
-console.log(nameOfPotato);
+//favorite hobby
+console.log(
+  'My favorite hobby is Super Smash Brothers Melee for the Nintendo Gamecube'
+);
+//hopes for the class
+console.log(
+  'I just want to learn more about what goes on behind the scenes'
+)
 
-//Updating potato name
-var nameOfPotato=nameOfPotato+1;
-console.log(nameOfPotato);
+//Introduction JavaScript MDN
+var name="World";
+console.log('JS MDN intro:');
+
+  function greetMe(name){
+    console.log('Hello '+name);
+  }
+greetMe(name);
