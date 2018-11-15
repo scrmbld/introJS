@@ -185,3 +185,13 @@ if(ultimateFavGame==favGames[0][0].toLowerCase()){
   alert(`Try playing a real man's game`);
 }
 */
+/*
+var counter=0;
+while(counter<favGames.length){
+  console.log(favGames[counter][0]);
+  if(ultimateFavGame==favGames[counter][0].toLowerCase()){
+    alert(`Your favorite game is ${favGames[counter][0]} for the ${favGames[counter][1]}`)
+  }
+  counter++;
+}
+*/
