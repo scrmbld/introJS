@@ -2,17 +2,13 @@
 //loose equals
 console.log(`42`==42);//returns true
 console.log(1==true);//returns true
-
-
 //strict equals
 console.log(`42`===42);//returns false
 //console.log(42===42); would return true
 console.log(1===true);//returns false
-
 //loose not equal
 console.log(`42`!=42);//returns false
 console.log(1!=false);//returns true
-
 //strict not equal
 console.log(`42`!==42);//returns true
 console.log(1!==false);//returns true
@@ -22,7 +18,6 @@ console.log(1!==false);//returns true
 const obj={
   name:'Liam'
 };
-
 const obj2={
   name:'Liam'
 };
@@ -31,7 +26,6 @@ console.log(obj.toString()==obj2.toString());
 //returns true, the objects have the same properties
 const arr1=['thing'];
 const arr2=['thing'];
-
 console.log(arr1==arr2);//returns false, arrays are like objects
 //you can toString arrays as well to compare them
 */
@@ -78,30 +72,23 @@ function fizzbuzz(){
 //number increment
 let number=1;
 console.log(`number`, number);
-
 number ++;
 console.log(`number`, number);
-
 number ++;
 console.log(`number`, number);
-
 //number decrement
 number --;
 console.log(`number`, number);
-
 //larger increments
 number += 5;
 console.log(`number`, number);
-
 //larger decrementss
 number -= 5;
 console.log(`number`, number);
-
 let cartTotal=0;
 const item=9.99;
 const item2=7.99;
 const discount=0.5;
-
 console.log(cartTotal+=item);
 console.log(cartTotal+=item2);
 console.log(cartTotal*=discount);
@@ -198,7 +185,6 @@ name ? alert(`Your name is ${name}`) : alert(`Invalid Name`);
 /*
 let superHero=prompt(`What is your favorite superhero?`);
 console.log(superHero);
-
 switch(superHero){
   case `Kite Man`:
     console.log("High tier choice. Very respectable.");
