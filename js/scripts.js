@@ -6,7 +6,8 @@ let diffAlert=`should be easy.`;
 let alertAdd=``;
 let numEasy=easyPeasy.length;
 //taking user input
-for(let i=0;i<3;i++){
+let listLength=parseInt(prompt(`How long is your list?`));
+for(let i=0;i<listLength;i++){
   let obj={};
   obj[`toDo`+ i]={}
   obj[`toDo`+ i].thing=prompt(`Enter the #${i+1} thing on your to do list.`);
@@ -34,7 +35,7 @@ for(let listIndex=0;listIndex<list.length;listIndex++){
 }
 //alerting easy items
 for(let listIndex=0;listIndex<easyPeasy.length; listIndex++){
-  if(listIndex+1<easyPeasy.length){
+  if(listIndex+1==easyPeasy.length){
     alertAdd=`${easyPeasy[listIndex].thing} and `;
     diffAlert=alertAdd+diffAlert;
   }else{
