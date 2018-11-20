@@ -1,10 +1,10 @@
 //setting up variables
 let list=[];
-let lastDiffEqual=0;
+let easyPeasy=[];
 let largestNumber=0;
 let diffAlert=`should be easy.`;
 let alertAdd=``;
-let numEasy=0;
+let numEasy=easyPeasy.length;
 //taking user input
 for(let i=0;i<3;i++){
   let obj={};
@@ -20,17 +20,28 @@ for(let i=0;i<list.length;i++){
   if(list[i].time>largestNumber){
     largestNumber=list[i].time;
   }
+  numEasy=i;
 }
+console.log(numEasy);
 //applying difficulty values to items
 for(let listIndex=0;listIndex<list.length;listIndex++){
   if(list[listIndex].time===largestNumber){
     list[listIndex].easy=false;
   }else{
     list[listIndex].easy=true;
+    easyPeasy.push(list[listIndex]);
   }
-  if(list[listIndex].easy==true){
-    alertAdd=`${list[listIndex].thing} and `;
+}
+//alerting easy items
+for(let listIndex=0;listIndex<easyPeasy.length; listIndex++){
+  if(listIndex+1<easyPeasy.length){
+    alertAdd=`${easyPeasy[listIndex].thing} and `;
+    diffAlert=alertAdd+diffAlert;
+  }else{
+    alertAdd=`${easyPeasy[listIndex].thing}, `;
     diffAlert=alertAdd+diffAlert;
   }
+  console.log(numEasy);
+  numEasy--;
 }
 alert(diffAlert);
