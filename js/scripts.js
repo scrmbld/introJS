@@ -106,3 +106,11 @@ class person{
 let liam=new person(`Liam`, 16);//this fills out the args
 liam.howOld();//this runs the method
 */
+//recursion
+function getName(){
+  let name=prompt(`Enter your name`);
+  if(!name){
+    getName();
+  }
+}
+getName();
