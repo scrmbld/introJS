@@ -1,12 +1,12 @@
 //square function
-function square (){
-  let num=parseInt(prompt(`Enter a number to square`));
-  if(num.toString()==`NaN`){
-    alert(`Not a number`);
-    square();
-  }else{
-    alert(num*num);
+function exponent (base, exponent){
+  let counter=exponent;
+  let num=base;
+  while(counter>1){
+    num=num*base;
+    counter--;
   }
+  alert(num);
 }
 function grammar(){
   let sentence=prompt(`Enter a sentence`);
@@ -21,4 +21,5 @@ function grammar(){
   sentence=sentence.join(``);
   alert(sentence);
 }
-grammar();
+//grammar();
+exponent(3,3);
