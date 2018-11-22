@@ -28,7 +28,7 @@ console.log(document.getElementsByTagName(`body`));
 console.log(document.getElementsByClassName(`.thing`));
 console.log(document.getElementsByTagName(`#only`));
 */
-
+/*
 //event listeners
 let test=document.querySelector(`.test`);
 //when .test is clicked, .test{display:none;}
@@ -38,3 +38,20 @@ document.addEventListener(`keydown`,e =>{
   test.style.color=`brown`;
   console.log(e);
 });
+*/
+/*
+let button=document.querySelector(`.button`);
+let divThing=document.querySelector(`.thing`);
+let header=document.querySelector(`.header`);
+button.addEventListener(`click`,e =>{
+  alert(`You clicked the button.`);
+});
+divThing.addEventListener(`mouseover`,e =>{
+  divThing.style.backgroundColor=`#111`;
+  divThing.style.color=`#eee`;
+});
+document.addEventListener(`keydown`,e =>{
+  header.style.color=`brown`;
+  console.log(e);
+})
+*/
