@@ -39,7 +39,7 @@ document.addEventListener(`keydown`,e =>{
   console.log(e);
 });
 */
-/*
+
 let button=document.querySelector(`.button`);
 let divThing=document.querySelector(`.thing`);
 let header=document.querySelector(`.header`);
@@ -50,8 +50,7 @@ divThing.addEventListener(`mouseover`,e =>{
   divThing.style.backgroundColor=`#111`;
   divThing.style.color=`#eee`;
 });
-document.addEventListener(`keydown`,e =>{
+document.addEventListener(`keyup`,e =>{
   header.style.color=`brown`;
   console.log(e);
 })
-*/
