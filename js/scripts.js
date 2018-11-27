@@ -1,9 +1,12 @@
 //setting up variables
 const input=document.querySelector(`.todo`);
 const enter=document.querySelector(`.enter`);
+const body=document.querySelector(`body`);
+console.log(body);
 let list=[];
 //taking the input and putting it into the last li
-enter.addEventListener(`click`,e =>{
+body.addEventListener(`keydown`,e =>{
+  console.log(e);
   let finalInput=input.value;
   console.log(finalInput);
   list.push(finalInput);
