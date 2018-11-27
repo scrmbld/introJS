@@ -1,1 +1,7 @@
-
+body{
+  font-family:sans-serif;
+}
+li{
+  margin-bottom:1vh;
+  margin-top:1vh;
+}
