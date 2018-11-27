@@ -4,3 +4,14 @@
   font-family:sans-serif;
   font-size:30px;
 }
+.invisible{
+  display:none;
+}
+h1{
+  text-align:center;
+}
+p{
+  text-align:justify;
+  padding-left:15%;
+  padding-right:15%;
+}
