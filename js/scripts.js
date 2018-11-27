@@ -1,6 +1,7 @@
+let jsLink=document.querySelector(`script`);
 /*
 const body=document.querySelector(`body`);
-console.log(body);
+console.log(body);11
 body.addEventListener(`keydown`,e =>{
   console.log(e);
   if(key==`Enter`){
@@ -48,6 +49,7 @@ button.setAttribute(`disabled`, true);//disables button
 button.removeAttribute(`disabled`);//immediately re-ea=nables
 */
 //button.classList.remove(`btn-success`);
+/*
 const jsLink=document.querySelector(`script`);
 //setting up navbar
 const navbar=document.createElement(`nav`);
@@ -63,15 +65,38 @@ const navItem3=document.createElement(`span`);
 navItem3.textContent=`About`;
 navbar.append(navItem1, navItem2, navItem3);
 
+//adding title
 const header=document.createElement(`h1`);
 header.textContent=`Hello World`;
 header.classList.add(`text-center`);
 document.body.insertBefore(header, jsLink);
 
+//adding content
 const content=document.createElement(`p`);
 content.textContent=`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 document.body.insertBefore(content, jsLink);
 
+//adding footer
 const footer=document.createElement(`footer`);
 footer.textContent=`Find us on FB`;
 document.body.insertBefore(footer, jsLink);
+*/
+//fizzbuzz thingy
+let ul=document.createElement(`ul`);
+document.body.insertBefore(ul, jsLink);
+
+for(let i=1;i<100;i++){
+  let obj={};
+  if(i%3==0 && i%5==0){
+    obj[`fizzbuzz`+i]=`fizzbuzz`;
+  }else if(i%3==0){
+    obj[`fizzbuzz`+i]=`fizz`;
+  }else if(i%5==0){
+    obj[`fizzbuzz`+i]=`buzz`;
+  }else{
+    obj[`fizzbuzz`+i]=i;
+  }
+  obj[`ans`+i]=document.createElement(`li`);
+  obj[`ans`+i].textContent=obj[`fizzbuzz`+i];
+  ul.appendChild(obj[`ans`+i]);
+}
