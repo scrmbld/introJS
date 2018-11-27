@@ -82,21 +82,41 @@ footer.textContent=`Find us on FB`;
 document.body.insertBefore(footer, jsLink);
 */
 //fizzbuzz thingy
-let ul=document.createElement(`ul`);
-document.body.insertBefore(ul, jsLink);
+function fizzbuzz(min, max){
+  let ul=document.createElement(`ul`);
+  document.body.insertBefore(ul, jsLink);
 
-for(let i=1;i<100;i++){
-  let obj={};
-  if(i%3==0 && i%5==0){
-    obj[`fizzbuzz`+i]=`fizzbuzz`;
-  }else if(i%3==0){
-    obj[`fizzbuzz`+i]=`fizz`;
-  }else if(i%5==0){
-    obj[`fizzbuzz`+i]=`buzz`;
-  }else{
-    obj[`fizzbuzz`+i]=i;
+  for(let i=min;i<=max;i++){
+    let obj={};
+    if(i%3==0 && i%5==0){
+      obj[`fizzbuzz`+i]=`fizzbuzz`;
+    }else if(i%3==0){
+      obj[`fizzbuzz`+i]=`fizz`;
+    }else if(i%5==0){
+      obj[`fizzbuzz`+i]=`buzz`;
+    }else{
+      obj[`fizzbuzz`+i]=i;
+    }
+    obj[`ans`+i]=document.createElement(`li`);
+    obj[`ans`+i].textContent=obj[`fizzbuzz`+i];
+    ul.appendChild(obj[`ans`+i]);
   }
-  obj[`ans`+i]=document.createElement(`li`);
-  obj[`ans`+i].textContent=obj[`fizzbuzz`+i];
-  ul.appendChild(obj[`ans`+i]);
 }
+function input(){
+  let minInput=document.querySelector(`#one`);
+  let maxInput=document.querySelector(`#two`);
+  let enter=document.querySelector(`button`);
+
+  minInput.addEventListener(`input`, e =>{
+
+  })
+  maxInput.addEventListener(`input`, e=>{
+
+  })
+  enter.addEventListener(`click`, e=>{
+    console.log(minInput.value);
+    console.log(maxInput.value);
+    fizzbuzz(minInput.value, maxInput.value);
+  })
+}
+input();
