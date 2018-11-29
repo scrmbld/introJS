@@ -1,16 +1,22 @@
 //setting up variables
+//getting HTML elements
 const input=document.querySelector(`.todo`);
 const enter=document.querySelector(`.enter`);
-const jsLink=document.querySelector(`script`);
 const ol=document.querySelector(`ol`);
-let list=[];
-let obj={};
-let counter=0;
-//taking the input and putting it into the last li
-enter.addEventListener(`click`,e =>{
-  counter++;
-  obj[`item`+counter]=input.value;
-  obj[`li`+counter]=document.createElement(`li`);
-  obj[`li`+counter].textContent=`${obj[`item`+counter]}`;
-  ol.append(obj[`li`+counter]);
+//adding placeholders
+let currentInput=``;
+
+input.addEventListener(`input`, e =>{
+  //taking stuff from the input
+  currentInput=input.value;
+})
+enter.addEventListener(`click`, e =>{
+  //finalizing the value taken for the input
+  let finalInput=currentInput;
+  //creating the li
+  li=document.createElement(`li`);
+  console.log(li);
+  li.textContent=finalInput;
+  //appending the li
+  ol.append(li);
 })

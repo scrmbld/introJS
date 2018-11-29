@@ -1,7 +1,6 @@
-body{
+/* test */
+.test{
+  color:#63c;
   font-family:sans-serif;
-}
-li{
-  margin-bottom:1vh;
-  margin-top:1vh;
+  font-size:30px;
 }
