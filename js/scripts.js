@@ -11,7 +11,7 @@ btn.addEventListener(`click`, e =>{
   firstName.value=``;
 })
 */
-
+/*
 console.log(this);
 const person={
   firstName:`one`,
@@ -42,7 +42,7 @@ btnTwo.addEventListener(`click`,logThis);
 function logThis(){
   console.log(this);
 }
-*/
+
 btnOne.addEventListener(`click`, e =>{
   console.log(this);//returns window
 });
@@ -54,3 +54,43 @@ btnTwo.addEventListener(`click`,function(){
 function logThis(){
   console.log(this);
 }
+*/
+/*
+const buttons=document.querySelectorAll(`button`);
+console.log(buttons);
+buttons.forEach(button =>button.addEventListener(`click`, function(){
+  this.style.display=`none`;
+}));
+*/
+
+const dog={
+  name:`Fido`,
+  says:`woof.`,
+};
+const cat={
+  name:`Skeletor`,
+  says:`meow.`,
+};
+const eagle={
+  name:`Freedom`,
+  says:`*gunshots*`,
+};
+
+function speak(location, status){
+  alert(`${this.name} says ${this.says}`);
+}
+
+const dogSays=speak.bind(dog);
+dogSays();
+
+const catSays=speak.bind(cat);
+catSays();
+
+const eagleSays=speak.bind(eagle);
+eagleSays();
+
+/*
+speak.apply(dog, [`the yard`, `is chasing squirrel`]);
+speak.apply(cat, [`your lap`]);
+speak.apply(eagle,[ `the Rocky Mountians`, `is acquiring oil`]);
+*/
