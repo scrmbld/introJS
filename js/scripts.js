@@ -9,7 +9,10 @@ let todoList=[];
 //setting up functions
 function createLi(finalInput){
   //creating container
-  let container=document.createElement(`li`);
+  let container={
+    name:document.createElement(`li`),
+    done:false
+  };
   //adding "done" button
   let doneSelect=document.createElement(`input`);
   let type=document.createAttribute(`type`);
@@ -24,15 +27,15 @@ function createLi(finalInput){
   delButton.textContent=`Delete`;
   delButton.classList.add(`del-button`);
   //appending li content to container
-  container.append(doneSelect, li, delButton);
-  ol.appendChild(container);
+  container.name.append(doneSelect, li, delButton);
+  ol.appendChild(container.name);
 
   //adding functionality to buttons
-  doneSelect.addEventListener(`input`, e =>{
-    console.log(doneSelect.value);
+  doneSelect.addEventListener(`input`, function(){
+    this.parentElement.classList.toggle(`done`);
   })
-  delButton.addEventListener(`click`, e =>{
-    container.style.display=`none`;
+  delButton.addEventListener(`click`, function(){
+    this.parentElement.style.display=`none`;
   })
 }
 //adding things to list
