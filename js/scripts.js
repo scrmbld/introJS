@@ -7,12 +7,25 @@ const ol=document.querySelector(`ol`);
 let currentInput=``;
 let todoList=[];
 //setting up functions
+function checkDone(todoList){
+  let listDone=true;
+  for (let i=0;i<todoList.length;i++){
+    if(todoList[i].done==false){
+      listDone=false;
+      console.log(todoList[i]);
+    }
+  }
+  console.log(listDone);
+}
 function createLi(finalInput){
   //creating container
   let container={
     name:document.createElement(`li`),
-    done:false
+    done:false,
+    what:``,
   };
+  todoList.push(container);
+  console.log(todoList);
   //adding "done" button
   let doneSelect=document.createElement(`input`);
   let type=document.createAttribute(`type`);
@@ -21,6 +34,7 @@ function createLi(finalInput){
   //creating li
   let li=document.createElement(`span`);
   li.textContent=finalInput;
+  container.what=`${li.textContent}`;
 
   //creating delete button
   let delButton=document.createElement(`button`)
@@ -33,6 +47,8 @@ function createLi(finalInput){
   //adding functionality to buttons
   doneSelect.addEventListener(`input`, function(){
     this.parentElement.classList.toggle(`done`);
+    container.done=true;
+    checkDone(todoList);
   })
   delButton.addEventListener(`click`, function(){
     this.parentElement.style.display=`none`;
