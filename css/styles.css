@@ -1,7 +1,7 @@
 .done{
   text-decoration:line-through;
 }
-ol#two{
+ol{
   height:200px;
   width:500px;
   border:2px solid black;

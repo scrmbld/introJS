@@ -1,9 +1,14 @@
-const draggable=document.querySelector(`.li-drag`);
+let draggable=``;
 const ol=document.querySelectorAll(`ol`);
 let currentLocation=``;
-draggable.addEventListener(`dragstart`, function(event){
-  console.log(event);
-})
+let oldLocation=``;
+function dragInit(){
+  draggable=document.querySelector(`.li-drag`);
+  draggable.addEventListener(`dragstart`, function(event){
+    console.log(event);
+    oldLocation=this.parentElement;
+  })
+
 document.addEventListener(`drag`, function(event){
 
 })
@@ -14,7 +19,11 @@ ol.forEach(function(element){
   })
 })
 draggable.addEventListener(`dragend`,function(event){
-  console.log(event.target.toString());
   console.log(currentLocation);
+  console.log(oldLocation);
+  oldLocation.innerHTML=``;
   currentLocation.innerHTML=event.target.outerHTML;
+  dragInit();
 })
+}
+dragInit();
