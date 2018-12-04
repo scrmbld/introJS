@@ -1,6 +1,8 @@
-/* test */
-.test{
-  color:#63c;
-  font-family:sans-serif;
-  font-size:30px;
+.done{
+  text-decoration:line-through;
+}
+ol#two{
+  height:200px;
+  width:500px;
+  border:2px solid black;
 }
