@@ -1,4 +1,3 @@
-//setting up variables
 //getting HTML elements
 const input=document.querySelector(`.add-list`);
 const enter=document.querySelector(`.enter`);
@@ -16,8 +15,11 @@ function checkDone(todoList){
       console.log(todoList[i]);
     }
   }
-  return listDone;
-  console.log(listDone);
+  if(listDone==true){
+    completeButton.removeAttribute(`disabled`);
+  }else if(listDone==false){
+    completeButton.setAttribute(`disabled`, true);
+  }
 }
 function createLi(finalInput){
   //creating container
@@ -46,15 +48,18 @@ function createLi(finalInput){
   container.name.append(doneSelect, li, delButton);
   ol.appendChild(container.name);
 
-  //adding functionality to buttons
+  //adding event listeners
+  container.name.addEventListener(`drag`,function(event){
+    console.log(event);
+  }, false);
   doneSelect.addEventListener(`input`, function(){
     this.parentElement.classList.toggle(`done`);
-    container.done=true;
-    if(checkDone(todoList)==true){
-      completeButton.removeAttribute(`disabled`);
+    if(doneSelect.checked==true){
+      container.done=true;
     }else{
-      completeButton.addAttribute(`disabled`, true);
+      container.done=false;
     }
+    checkDone(todoList);
 
   })
   delButton.addEventListener(`click`, function(){
