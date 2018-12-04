@@ -52,8 +52,7 @@ console.log(dog.powerLevel);//console log the new power level
 dog.eat();//changes power level in different function
 console.log(dog.powerLevel);//18000 -> 18012
 */
-//setting up variables
-
+/*
 //setting up functions
 function User(userInfo){//adding prototype
   this.userName=userInfo.userName;
@@ -70,3 +69,32 @@ function getUserInfo(){//adding function to get user input
 
 let person=new User(getUserInfo());
 console.log(person);
+*/
+//creating animal class
+class Animal{
+    constructor(name, energy){
+      this.name=name;
+      this.energy=energy;
+    }
+    play(){
+      this.energy -=5;
+    }
+}
+//creates new class, inherits from animal
+class Dog extends Animal{
+    constructor(name, energy, says){
+      super(...arguments);//takes all relevant args from animal
+
+      this.says=says;
+    }
+
+    speak(){
+      console.log(`Dog says ${this.says}`);
+    }
+}
+
+let fido=new Dog(`fido`, 64, `woof`);
+console.log(fido);
+fido.speak();
+fido.play();
+console.log(fido.energy);
