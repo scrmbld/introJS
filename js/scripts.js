@@ -3,6 +3,7 @@
 const input=document.querySelector(`.add-list`);
 const enter=document.querySelector(`.enter`);
 const ol=document.querySelector(`ol`);
+const completeButton=document.querySelector(`.btn-done`);
 //adding placeholders
 let currentInput=``;
 let todoList=[];
@@ -15,6 +16,7 @@ function checkDone(todoList){
       console.log(todoList[i]);
     }
   }
+  return listDone;
   console.log(listDone);
 }
 function createLi(finalInput){
@@ -48,7 +50,12 @@ function createLi(finalInput){
   doneSelect.addEventListener(`input`, function(){
     this.parentElement.classList.toggle(`done`);
     container.done=true;
-    checkDone(todoList);
+    if(checkDone(todoList)==true){
+      completeButton.removeAttribute(`disabled`);
+    }else{
+      completeButton.addAttribute(`disabled`, true);
+    }
+
   })
   delButton.addEventListener(`click`, function(){
     this.parentElement.style.display=`none`;
@@ -63,4 +70,10 @@ enter.addEventListener(`click`, e =>{
   //finalizing the value taken for the input
   let finalInput=currentInput;
   createLi(finalInput);
+})
+//"done" button functionality
+completeButton.addEventListener(`click`,function(){
+  completeButton.setAttribute(`disabled`,`true`);
+  todoList=[];
+  ol.innerHTML=``;
 })
