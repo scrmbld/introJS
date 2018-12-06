@@ -21,51 +21,26 @@ function checkDone(todoList){
     completeButton.setAttribute(`disabled`, true);
   }
 }
+
 function createLi(finalInput){
-  //creating container
+  //creating elements
   let container={
-    name:document.createElement(`li`),
-    done:false,
-    what:``,
+    name:document.createElement(`li`),//the li
+    done:false//whether the item has been completed
   };
-  todoList.push(container);
-  console.log(todoList);
-  //adding "done" button
-  let doneSelect=document.createElement(`input`);
-  let type=document.createAttribute(`type`);
-  type.value=`checkbox`;
-  doneSelect.setAttributeNode(type);
-  //creating li
-  let li=document.createElement(`span`);
-  li.textContent=finalInput;
-  container.what=`${li.textContent}`;
+  todoList.push(container);//pushing the li to the list
+  container.name.setAttribute(`id`, `${todoList.length}`);//setting id
 
-  //creating delete button
-  let delButton=document.createElement(`button`)
-  delButton.textContent=`Delete`;
-  delButton.classList.add(`del-button`);
-  //appending li content to container
-  container.name.append(doneSelect, li, delButton);
+  let checkBox=document.createElement(`input`);
+  checkBox.setAttribute(`type`, `checkbox`);
+
+  let content=document.createElement(`span`);
+  content.textContent=finalInput;
+
+  container.name.append(checkBox, content);
   ol.appendChild(container.name);
-
-  //adding event listeners
-  container.name.addEventListener(`drag`,function(event){
-    console.log(event);
-  }, false);
-  doneSelect.addEventListener(`input`, function(){
-    this.parentElement.classList.toggle(`done`);
-    if(doneSelect.checked==true){
-      container.done=true;
-    }else{
-      container.done=false;
-    }
-    checkDone(todoList);
-
-  })
-  delButton.addEventListener(`click`, function(){
-    this.parentElement.style.display=`none`;
-  })
 }
+
 //adding things to list
 input.addEventListener(`input`, e =>{
   //taking stuff from the input
