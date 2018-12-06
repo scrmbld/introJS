@@ -1,24 +1,19 @@
 //getting HTML elements
 const input=document.querySelector(`.add-list`);
 const enter=document.querySelector(`.enter`);
-const ol=document.querySelector(`ol`);
+const todoList=document.querySelector(`#to-do`);
+const doneList=document.querySelector(`#done`);
 const completeButton=document.querySelector(`.btn-done`);
 //adding placeholders
 let currentInput=``;
-let todoList=[];
+let todoArray=[];
+let doneArray=[]
+
 //setting up functions
-function checkDone(todoList){
-  let listDone=true;
-  for (let i=0;i<todoList.length;i++){
-    if(todoList[i].done==false){
-      listDone=false;
-      console.log(todoList[i]);
-    }
-  }
-  if(listDone==true){
-    completeButton.removeAttribute(`disabled`);
-  }else if(listDone==false){
-    completeButton.setAttribute(`disabled`, true);
+function updateList(list, ol){
+  ol.innerHTML=``;
+  for(let i=0; i<list.length; i++){
+    ol.appendChild(list[i].name);
   }
 }
 
@@ -28,17 +23,47 @@ function createLi(finalInput){
     name:document.createElement(`li`),//the li
     done:false//whether the item has been completed
   };
-  todoList.push(container);//pushing the li to the list
-  container.name.setAttribute(`id`, `${todoList.length}`);//setting id
-
+  todoArray.push(container);//pushing the li to the list
+  container.name.setAttribute(`id`, `${todoArray.length}`);//setting id
+  container.name.setAttribute(`draggable`, true);
+  //"done" checkbox
   let checkBox=document.createElement(`input`);
   checkBox.setAttribute(`type`, `checkbox`);
-
+  //text of li
   let content=document.createElement(`span`);
   content.textContent=finalInput;
+  content.classList.add(`item`);
+  container.content=content.textContent;//putting the text into the object
+  //delete button
+  let del=document.createElement(`button`);
+  del.classList.add(`btn-del`);
+  del.textContent=`delete`;
 
-  container.name.append(checkBox, content);
-  ol.appendChild(container.name);
+  //appending elements
+  container.name.append(checkBox, content, del);
+  updateList(todoArray, todoList);
+
+  //adding event listeners
+  //checkbox
+  checkBox.addEventListener(`input`, function(event){
+    container.done=checkBox.checked;
+    content.classList.toggle(`done`);
+    if(checkBox.checked==true){
+      doneArray.push(container);
+      console.log(doneArray);
+    }
+  })
+  //delete button
+  del.addEventListener(`click`, function(event){
+    //finding the element that has been deleted
+    for(let i=0;i<todoArray.length;i++){
+      if(todoArray[i].name==this.parentElement){
+        todoArray.splice(i, 1);
+        console.log(todoArray);
+      }
+    }
+    updateList(todoArray, todoList);
+  })
 }
 
 //adding things to list
@@ -53,7 +78,5 @@ enter.addEventListener(`click`, e =>{
 })
 //"done" button functionality
 completeButton.addEventListener(`click`,function(){
-  completeButton.setAttribute(`disabled`,`true`);
-  todoList=[];
-  ol.innerHTML=``;
+  updateList(doneArray, doneList);
 })
