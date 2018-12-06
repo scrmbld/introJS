@@ -32,6 +32,7 @@ cancel.addEventListener(`click`, function(event){
   clearInterval(timer);
 })
 */
+/*
 let userName=``;
 let password=``;
 const user={};
@@ -52,3 +53,13 @@ clearValue.addEventListener(`click`, function(event){
   console.log(localStorage.getItem(`username`));
   btn.removeAttribute(`disabled`);
 })
+*/
+ var v= 1;
+ var getValue=(function(x){
+   return function(){
+     alert(x);
+   };
+ }(v));
+ v=2;
+
+ getValue()
