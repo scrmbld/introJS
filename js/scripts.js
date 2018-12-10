@@ -4,6 +4,8 @@ const enter=document.querySelector(`.enter`);
 const todoList=document.querySelector(`#to-do`);
 const doneList=document.querySelector(`#done`);
 const completeButton=document.querySelector(`.btn-done`);
+const clearButton=document.querySelector(`.btn-clear`);
+console.log(clearButton);
 //adding placeholders
 let currentInput=``;
 let todoArray=[];
@@ -11,12 +13,23 @@ let doneArray=[]
 
 //setting up functions
 function updateList(list, ol){
-  ol.innerHTML=``;
-  for(let i=0; i<list.length; i++){
-    ol.appendChild(list[i].name);
-  }
-}
+  console.log(todoArray);
+  ol.innerHTML=``;//resetting the content of original list
+  if(list==todoArray){//determining which list is being updated
+      for(let i=0; i<list.length; i++){
+        if(list[i].done==false){
+          ol.appendChild(list[i].name);
+        }else{
+          list.splice(i,1);
+        }
+      }
+    }else if(list==doneArray){
+      for(let i=0;i<list.length;i++){
+        ol.appendChild(list[i].name);
+      }
+    }
 
+}
 function createLi(finalInput){
   //creating elements
   let container={
@@ -48,22 +61,25 @@ function createLi(finalInput){
   checkBox.addEventListener(`input`, function(event){
     container.done=checkBox.checked;
     content.classList.toggle(`done`);
-    if(checkBox.checked==true){
-      doneArray.push(container);
-      console.log(doneArray);
+    if(container.done==true){
+      doneArray.push(todoArray[todoArray.indexOf(container)]);
+    }else{
+      todoArray.push(doneArray[doneArray.indexOf(container)]);
     }
-  })
+  });
+
   //delete button
   del.addEventListener(`click`, function(event){
-    //finding the element that has been deleted
-    for(let i=0;i<todoArray.length;i++){
-      if(todoArray[i].name==this.parentElement){
-        todoArray.splice(i, 1);
-        console.log(todoArray);
-      }
+    if(container.done==false){//determining which list the container is in
+      todoArray.splice(todoArray.indexOf(container),1);
+
+      updateList(todoArray, todoList);
+    }else{
+      doneArray.splice(doneArray.indexOf(container),1);
+      updateList(doneArray, doneList);
     }
-    updateList(todoArray, todoList);
-  })
+    console.log(todoList);
+  });
 }
 
 //adding things to list
@@ -77,6 +93,12 @@ enter.addEventListener(`click`, e =>{
   createLi(finalInput);
 })
 //"done" button functionality
-completeButton.addEventListener(`click`,function(){
+completeButton.addEventListener(`click`,function(event){
+  updateList(doneArray, doneList);
+})
+//clear clear button
+clearButton.addEventListener(`click`,function(event){
+  doneArray.splice(0,doneArray.length);
+
   updateList(doneArray, doneList);
 })
