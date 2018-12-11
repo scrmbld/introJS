@@ -61,24 +61,19 @@ function createLi(finalInput){
   checkBox.addEventListener(`input`, function(event){
     container.done=checkBox.checked;
     content.classList.toggle(`done`);
-    if(container.done==true){
-      doneArray.push(todoArray[todoArray.indexOf(container)]);
-    }else{
-      todoArray.push(doneArray[doneArray.indexOf(container)]);
-    }
   });
 
   //delete button
   del.addEventListener(`click`, function(event){
     if(container.done==false){//determining which list the container is in
       todoArray.splice(todoArray.indexOf(container),1);
-
-      updateList(todoArray, todoList);
     }else{
       doneArray.splice(doneArray.indexOf(container),1);
-      updateList(doneArray, doneList);
     }
+    updateList(doneArray, doneList);
+    updateList(todoArray, todoList);
     console.log(todoList);
+    console.log(todoArray);
   });
 }
 
@@ -94,11 +89,17 @@ enter.addEventListener(`click`, e =>{
 })
 //"done" button functionality
 completeButton.addEventListener(`click`,function(event){
+  todoArray.forEach(function(item){
+    if(item.done==true){
+      doneArray.push(item);
+      todoArray.splice(todoArray.indexOf(item),1);
+    }
+  })
+  console.log(todoArray);
   updateList(doneArray, doneList);
 })
 //clear clear button
 clearButton.addEventListener(`click`,function(event){
   doneArray.splice(0,doneArray.length);
-
   updateList(doneArray, doneList);
 })
