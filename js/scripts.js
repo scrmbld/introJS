@@ -89,13 +89,13 @@ enter.addEventListener(`click`, e =>{
 })
 //"done" button functionality
 completeButton.addEventListener(`click`,function(event){
-  todoArray.forEach(function(item){
-    if(item.done==true){
-      doneArray.push(item);
-      todoArray.splice(todoArray.indexOf(item),1);
+  for(let i=0;i<todoArray.length;i++){
+    if(todoArray[i].done==true){
+      doneArray.push(todoArray[i]);
+      todoArray.splice(i,1);
+      i-=1;
     }
-  })
-  console.log(todoArray);
+  }
   updateList(doneArray, doneList);
 })
 //clear clear button
