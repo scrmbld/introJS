@@ -87,6 +87,13 @@ enter.addEventListener(`click`, e =>{
   let finalInput=currentInput;
   createLi(finalInput);
 })
+//making the enter key add a thing to the list
+input.addEventListener(`keydown`, function(event){
+  if(event.code==`Enter`){
+    let finalInput=currentInput;
+    createLi(finalInput);
+  }
+})
 //"done" button functionality
 completeButton.addEventListener(`click`,function(event){
   for(let i=0;i<todoArray.length;i++){
