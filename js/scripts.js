@@ -5,11 +5,12 @@ const todoList=document.querySelector(`#to-do`);
 const doneList=document.querySelector(`#done`);
 const completeButton=document.querySelector(`.btn-done`);
 const clearButton=document.querySelector(`.btn-clear`);
-console.log(clearButton);
 //adding placeholders
 let currentInput=``;
+let dragging=``;
+let currentLocation=``;
 let todoArray=[];
-let doneArray=[]
+let doneArray=[];
 
 //setting up functions
 function updateList(list, ol){
@@ -39,6 +40,7 @@ function createLi(finalInput){
   todoArray.push(container);//pushing the li to the list
   container.name.setAttribute(`id`, `${todoArray.length}`);//setting id
   container.name.setAttribute(`draggable`, true);
+
   //"done" checkbox
   let checkBox=document.createElement(`input`);
   checkBox.setAttribute(`type`, `checkbox`);
@@ -72,10 +74,29 @@ function createLi(finalInput){
     }
     updateList(doneArray, doneList);
     updateList(todoArray, todoList);
-    console.log(todoList);
-    console.log(todoArray);
   });
+  //drag
+  container.name.addEventListener(`dragstart`, function(event){
+    dragging=container;
+  });
+  container.name.addEventListener(`dragenter`, function(event){
+    if(event.target != container.name && event.target !=dragging.name){
+      currentLocation=container;
+      console.log(currentLocation);
+    }
+  });
+  container.name.addEventListener(`dragend`, function(event){
+    if(todoArray.indexOf(currentLocation) != -1 && todoArray.indexOf(dragging) != -1){
+      if(currentLocation!=dragging){
+        todoArray.splice(todoArray.indexOf(dragging), 1);
+        todoArray.splice(todoArray.indexOf(currentLocation),0,dragging);
+      }
+    }
+    console.log(currentLocation);
+    updateList(todoArray, todoList);
+  })
 }
+
 
 //adding things to list
 input.addEventListener(`input`, e =>{
